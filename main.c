@@ -9,13 +9,13 @@ int main (int argc, const char *argv[]) {
     testSudukoGrid();
 
     SudukoGrid sample = newSudukoGrid();
-    readGame (sample);
+    readGame(sample);
 
     printf("Problem:\n");
-    showGame (sample);
+    showGame(sample);
     if (hasSolution(sample)) {
         printf("\nSolution:\n");
-        showGame (sample);
+        showGame(sample);
     }
 
     return 0;
@@ -26,23 +26,23 @@ int hasSolution(SudukoGrid game) {
     cell candidateCell;
     value trialValue;
 
-    if (isFull (game)) {
+    if (isFull(game)) {
         solved = TRUE;
     } else {
-        candidateCell = getFreeCell (game);
+        candidateCell = getFreeCell(game);
         trialValue = MIN_VALUE;
         solved = FALSE;
 
         while (!solved && trialValue <= MAX_VALUE) {
 
-            if (isLegal (game, candidateCell, trialValue)) {
-                setCell (game, candidateCell, trialValue);
+            if (isLegal(game, candidateCell, trialValue)) {
+                setCell(game, candidateCell, trialValue);
 
                 if(hasSolution(game)) {
                     solved = TRUE;
                 }
                 else {
-                    clearCell (game, candidateCell);
+                    clearCell(game, candidateCell);
                 }
             }
             trialValue++;
