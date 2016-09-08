@@ -20,7 +20,7 @@ SudukoGrid newSudukoGrid (void) {
     SudukoGrid new;
     new = malloc (sizeof (struct sudukoGrid));
 
-    assert (new != NULL);
+    assert(new != NULL);
 
     new->numberOccupied = 0;
 
